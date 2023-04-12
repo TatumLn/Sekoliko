@@ -1,0 +1,4 @@
+#Exclus lors de l'envoi au depot distant
+node_modules/
+.env
+
