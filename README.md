@@ -1,5 +1,5 @@
 # Sekoliko
-Gestion d'une école (TechJS)
+Gestion d'une école (Avec TechJS)
 IGGLIA 3 2022-2023
 
 //Pour le front 
