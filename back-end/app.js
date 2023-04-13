@@ -1,4 +1,4 @@
-// importez les modules nécessaires
+// import les modules nécessaires
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -10,10 +10,10 @@ app.use(cors());
 // configurez les routes de l'API
 const userRoutes = require('./routes/auth');
 
-//
+//Import des modules pour les fichiers dotenv qui contient notre lien vers notre BD
 const dotenv = require('dotenv');
 dotenv.config();
-//
+//Stock notre lien BD dans une variable URL
 const URL=process.env.MONGO_URL
 
 const mongoose = require('mongoose')

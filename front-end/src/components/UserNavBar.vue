@@ -13,27 +13,27 @@
     <ul class="navbar-nav">
       <!--Dashboard-->
       <li class="nav-item active">
-        <router-link to="/home" class="nav-link">Dashboard</router-link>
+        <router-link to="/home" class="nav-link">Accueil</router-link>
       </li>
       <!---->
       <li class="nav-item">
-        <router-link to="/about" class="nav-link">Classes</router-link>
+        <router-link to="#" class="nav-link">Classes</router-link>
       </li>
       <!---->
       <li class="nav-item">
-        <router-link to="/eleves" class="nav-link">Eleves</router-link>
+        <router-link to="#" class="nav-link">Eleves</router-link>
       </li>
       <!---->
       <li class="nav-item">
-        <router-link to="/about" class="nav-link">Enseignants</router-link>
+        <router-link to="#" class="nav-link">Enseignants</router-link>
       </li>
       <!---->
       <li class="nav-item">
-        <router-link to="/about" class="nav-link">Cours</router-link>
+        <router-link to="#" class="nav-link">Cours</router-link>
       </li>
       <!---->
       <li class="nav-item">
-        <router-link to="/about" class="nav-link">Emplois-du-temps</router-link>
+        <router-link to="#" class="nav-link">Emplois-du-temps</router-link>
       </li>
       <!--Notifications-->
       <li class="nav-item">
@@ -57,7 +57,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   //Nom du composant
-  name: 'NavBar',
+  name: 'UserNavBar',
 });
 </script>
 

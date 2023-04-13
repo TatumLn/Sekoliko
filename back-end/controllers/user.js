@@ -4,18 +4,31 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user')
 
 //Pour l'inscription (SignUp)
-exports.ajouter = (req, res, next) => {
-  // Validation des données d'entrée
-  if (!req.body.identifiant || !req.body.password) {
-    return res.status(400).json({ message: 'Veuillez entrer un identifiant et un mot de passe valide.' });
-  }
+//Etape 1: Verifier si l'identifiant existe deja
+exports.checkIdentifiant = (req, res, next) => {
+    // Validation des données d'entrée
+  if (!req.body.identifiant) {
+    return res.status(400).json({ message: 'Veuillez entrer un identifiant' });
+  }else{
   
   // Vérification si l'identifiant existe déjà dans la base de données
   User.findOne({ identifiant: req.body.identifiant })
     .then(user => {
       if (user) {
-        return res.status(409).json({ message: 'L\'identifiant existe déjà.' });
+        //True: Si l'utilisateur exist
+        return res.status(200).json({ exists: true });
       } else {
+        //False: Si l'utilisateur n'existe pas
+        return res.status(200).json({ exists: false });
+      }
+    })
+    .catch(error => res.status(500).json({  message: 'Erreur du Serveur.' }));
+ }}
+//Etape 2:Si l'identifiant n'existe pas inscription reussie
+exports.ajouter = (req, res, next) => {
+  if (!req.body.password) {
+    return res.status(400).json({ message: 'Veuillez entrer un mot de passe' });
+  }
         // Hashage du mot de passe avec Bcrypt
         bcrypt.hash(req.body.password, 10)
           .then(hash => {
@@ -31,9 +44,6 @@ exports.ajouter = (req, res, next) => {
           })
           .catch(error => res.status(500).json({ error }));
       }
-    })
-    .catch(error => res.status(500).json({ error }));
-};
 
 //Pour la connexion (Login)
 exports.connecter = (req, res, next) => {

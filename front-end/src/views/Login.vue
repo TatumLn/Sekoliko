@@ -16,9 +16,10 @@
               <form @submit.prevent="connecter">
                 <!--Identifiant-->
                 <div class="form-group">
-                  <input type="text" name="username" class="form-control" v-model="identifiant" placeholder="identifiant">
+                  <input type="text" name="username" class="form-control" v-model="identifiant" placeholder="identifiant" autocomplete="off">
                   <span v-if="errors.identifiant" class="text-danger">{{ errors.identifiant }}</span>
                 </div>
+                <br>
                 <!--Mot de passe-->
                 <div class="form-group">
                   <input type="password" name="password" class="form-control" v-model="password" placeholder="Mot de passe">
@@ -26,8 +27,6 @@
                 </div>
                 <br>
                 <button type="submit" class="btn btn-primary" >Se Connecter</button>
-                <!--Pour un nouveau admin-->
-                <p>Ajouté un compte? <router-link to="/signup">Ajout</router-link></p>
               </form>
             </div>
           </div>
@@ -84,6 +83,7 @@
       .then( () => {
         //en cas de succes
         console.log('Connexion Reussie')
+        this.$router.push('/home'); // rediriger vers la page d'accueil
       })
       .catch( () => {
         //en cas d'erreur

@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 // Définition du modèle utilisateur avec Mongoose
 const UserSchema = new mongoose.Schema({
   identifiant: { type: String, 
-                  required: true},
+                  required: true,
+                  unique: true},
   password: {type: String, 
                   required: true}
 })
