@@ -2,8 +2,10 @@
 const bcrypt = require('bcrypt');
 //importer le model de la BD mongoose
 const User = require('../models/user')
+const Admin = require('../models/admin')
 
 //Pour l'inscription (SignUp)
+
 //Etape 1: Verifier si l'identifiant existe deja
 exports.checkIdentifiant = (req, res, next) => {
     // Validation des données d'entrée
@@ -45,28 +47,34 @@ exports.ajouter = (req, res, next) => {
           .catch(error => res.status(500).json({ error }));
       }
 
+
 //Pour la connexion (Login)
 exports.connecter = (req, res, next) => {
     if (!req.body.identifiant || !req.body.password) {
         return res.status(400).json({ message: 'Veuillez entrer un identifiant et un mot de passe valide.' });
       }
-    //Recherche l'identifiant au BD
+    //Recherche l'identifiant a la collection User dans ma BD
     User.findOne({ identifiant: req.body.identifiant })
        .then(user => {
-        //Verification si l'utilisateur existe
-           if (user === null) {
+        if (!user) {
+          // Si aucun utilisateur n'est trouvé dans la collection User, chercher dans la collection Admin
+          Admin.findOne({ identifiant: req.body.identifiant })
+            .then(admin => {
+        //Si aucin utilisateur aussi n'est trouvé dans la collection Admin donc l'user n'existe pas encore
+           if (!admin) {
                return res.status(401).json({ message: 'L\'identifiant n\'existe pas!! '});
            } else{
-            //si l'identifiant existe verifier le mot de passe entrer 
-           bcrypt.compare(req.body.password, user.password)
+            //si l'identifiant existe dans l'admin comparer le mot de passe entrer avec celui du BD
+           bcrypt.compare(req.body.password, admin.password)
                .then(valid => {
-                //
+                //si le mot de passe est incorrect afficher ceci
                    if (!valid) {
-                       return res.status(401).json({ message: 'Mot de passe incorrecte' });
+                       return res.status(401).json({ message: 'Mot de passe Admin incorrecte' });
                    }else{
-                   //
+                    // Mot de passe correct, renvoyer le rôle "admin" au front 
                    res.status(200).json({
-                       userId: user._id,
+                       role: 'admin',
+                       adminId: admin._id,
                        token: 'TOKEN'
                    });
                 }
@@ -76,4 +84,25 @@ exports.connecter = (req, res, next) => {
     })
        .catch(error => res.status(500).json({ error }));
 
-};
+}else{ 
+        //si l'identifiant existe dans user comparer le mot de passe entrer avec celui du BD
+        bcrypt.compare(req.body.password, user.password)
+        .then(valid => {
+              // si le mot de passe est incorrect afficher ceci
+            if (!valid) {
+                return res.status(401).json({ message: 'Mot de passe Utilisateur incorrecte' });
+            }else{
+            // Mot de passe correct, renvoyer le rôle "user" au front
+            res.status(200).json({
+                role: 'user',
+                userId: user._id,
+                token: 'TOKEN'
+            });
+        }
+        })
+        .catch(error => res.status(500).json({ error }));
+      }
+      })
+      .catch(error => res.status(500).json({ error }));
+
+}

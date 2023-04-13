@@ -8,7 +8,8 @@ const app = express();
 app.use(cors());
 
 // configurez les routes de l'API
-const userRoutes = require('./routes/auth');
+const userRoutes = require('./routes/authUser');
+const adminRoutes = require('./routes/authAdmin');
 
 //Import des modules pour les fichiers dotenv qui contient notre lien vers notre BD
 const dotenv = require('dotenv');
@@ -25,7 +26,9 @@ mongoose.connect(URL)
 // configurez le middleware body-parser pour parser le corps des requêtes en objet JSON
 app.use(bodyParser.json());
 
+//EndPoint avec le front-end
 app.use('/api/auth', userRoutes);
+app.use('/api/authAdmin',adminRoutes)
 
 // exporte l'application pour une utilisation ultérieure
 module.exports = app;

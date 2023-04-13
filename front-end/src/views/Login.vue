@@ -66,8 +66,8 @@
           this.errors.identifiant = 'Entrer Votre identifiant SVP!!';
           this.errors.password = 'Entrer Votre Mot de passe SVP!!';
         }else{
-        //Affichage lorsque les champs sont bien remplies
-        //Endpoint  
+        //Lorsque les champs sont bien remplies
+        //Endpoint avec le back-end
       fetch('http://localhost:3000/api/auth/', {
         //methode POST
         method: 'POST',
@@ -80,10 +80,18 @@
           password: this.password
         })
       })
-      .then( () => {
-        //en cas de succes
-        console.log('Connexion Reussie')
-        this.$router.push('/home'); // rediriger vers la page d'accueil
+      .then(response => response.json())
+        .then(data => {
+          //Si l'identifiant entrer est un identifiant user diriger l'user vers la page d'accueil user
+        if (data.role === 'user') {
+        this.$router.push('/home');
+        //Si admin diriger vers la page d'accueil admin
+        } else if (data.role === 'admin') {
+        this.$router.push('/AdminHome');
+        } else {
+          //Si ni admin ni user "Utilisateur non inscrit"
+        console.log('Utilisateur non inscrit!!');
+        }
       })
       .catch( () => {
         //en cas d'erreur

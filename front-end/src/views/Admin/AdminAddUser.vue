@@ -58,8 +58,7 @@
             this.errors.identifiant = 'Saisir un identifiant SVP!!';
             this.errors.password = 'Saisir un Mot de passe SVP!!';
           }else {
-          //Affichage lorsque les champs sont bien remplies 
-          //Affichage lorsque les champs sont bien remplies
+          //Lorsque les champs sont bien remplies
           //Endpoint avec le back-end
           fetch("http://localhost:3000/api/auth/checkIdentifiant", {
             //methode POST

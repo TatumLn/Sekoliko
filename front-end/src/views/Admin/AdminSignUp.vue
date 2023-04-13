@@ -65,7 +65,7 @@
           }else{
           //Affichage lorsque les champs sont bien remplies
           //Endpoint avec le back-end
-        fetch('http://localhost:3000/api/auth/signup', { 
+        fetch('http://localhost:3000/api/authAdmin//AdminSignup', { 
             //methode POST
           method: 'POST',
           //Envoie la requete sous forme de JSON
@@ -80,7 +80,7 @@
         .then( ()=> {
           //en cas de Succes 
           console.log('Requete envoyer avec succes')
-          this.$router.push(''); // rediriger vers 
+          this.$router.push('/AdminHome'); // rediriger vers 
         })
         .catch( ()=> {
           //en cas d'Erreur
