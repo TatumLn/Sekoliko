@@ -1,5 +1,4 @@
-# Sekoliko
-Gestion d'une école (Avec TechJS)
+# Projet Sekoliko TechJS
 IGGLIA 3 2022-2023
 
 //Pour le front 
