@@ -9,15 +9,17 @@
 </template>
   
 <script lang="ts">
-    import { defineComponent } from 'vue';
-    import UserNavBar from '@/components/UserNavBar.vue';
+   import { Options, Vue } from 'vue-class-component';
+import UserNavBar from '@/components/UserNavBar.vue';
 
-    export default defineComponent({
-      name: 'UserHomePage',
-      components: {
-      UserNavBar,
-    },
-    });
+@Options({
+  components: {
+    UserNavBar,
+  },
+})
+export default class UserHomePage extends Vue {
+  //Methode
+}
 </script>
   
 <style>

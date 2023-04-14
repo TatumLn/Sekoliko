@@ -34,80 +34,73 @@
 </template>
     
 <script lang="ts">
-    import { defineComponent } from 'vue'
-    //
-    interface AdminAddUserData {
-    identifiant: string;
-    password: string;
-    errors: { [key: string]: string };
-    }
-    
-    export default defineComponent({
-      //Nom du viewers 
-      name: 'AdminAddUserPage',
-      data(): AdminAddUserData {
-        return {
-          identifiant: '',
-          password: '',
-          errors: {}
-        }
-      },
-      methods: {
-        ajouter: function() { 
-          //Achiffage lorsque les champs sont vide
+   import { Options, Vue } from 'vue-class-component';
+
+      @Options({
+        name: 'AdminAddUserPage',
+      })
+      export default class AdminAddUserPage extends Vue {
+        identifiant = '';
+        password = '';
+        errors: { [key: string]: string } = {};
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        $router: any;
+
+        ajouter() {
+          // Achiffage lorsque les champs sont vide
           this.errors = {};
           if (this.identifiant === '' || this.password === '') {
             this.errors.identifiant = 'Saisir un identifiant SVP!!';
             this.errors.password = 'Saisir un Mot de passe SVP!!';
-          }else {
-          //Lorsque les champs sont bien remplies
-          //Endpoint avec le back-end
-          fetch("http://localhost:3000/api/auth/checkIdentifiant", {
-            //methode POST
-            method: "POST",
-            //Envoie la requete sous forme de JSON
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              identifiant: this.identifiant,
-            }),
-          })
-          .then((response) => response.json())
-            .then((user) => {
-              if (user.exists) {
-                alert("L'identifiant saisie est déjà inscrit");
-              } else {
-          //Endpoint avec le back-end
-        fetch('http://localhost:3000/api/auth/signupUser', { 
-            //methode POST
-          method: 'POST',
-          //Envoie la requete sous forme de JSON
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            identifiant: this.identifiant,
-            password: this.password
-          })
-        })
-        .then( ()=> {
-          //en cas de Succes 
-          console.log('Requete 2 envoyer avec succes')
-          this.$router.push(''); // rediriger vers 
-        })
-        .catch( ()=> {
-          //en cas d'Erreur
-          console.log('Erreur lors d\'envoie de la requete 2')
-        })
-      }
-    })
-         .catch( ()=> {
-          //en cas d'Erreur
-          console.log('Erreur lors d\'envoie de la requete 1')
-        })
+          } else {
+            // Lorsque les champs sont bien remplies
+            // Endpoint avec le back-end
+            fetch('http://localhost:3000/api/auth/checkIdentifiant', {
+              // Methode POST
+              method: 'POST',
+              // Envoie la requete sous forme de JSON
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                identifiant: this.identifiant,
+              }),
+            })
+              .then((response) => response.json())
+              .then((user) => {
+                //Si l'identifiant est deja enregistré
+                if (user.exists) {
+                  alert("L'identifiant saisie est déjà inscrit");
+                } else {
+                  // Endpoint avec le back-end
+                  fetch('http://localhost:3000/api/auth/signupUser', {
+                    // Methode POST
+                    method: 'POST',
+                    // Envoie la requete sous forme de JSON
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      identifiant: this.identifiant,
+                      password: this.password,
+                    }),
+                  })
+                    .then(() => {
+                      // en cas de Succes
+                      console.log('Requete 2 envoyer avec succes');
+                      this.$router.push(''); // rediriger vers
+                    })
+                    .catch(() => {
+                      // en cas d'Erreur
+                      console.log("Erreur lors d'envoie de la requete 2");
+                    });
+                }
+              })
+              .catch(() => {
+                // en cas d'Erreur
+                console.log("Erreur lors d'envoie de la requete 1");
+              });
+          }
         }
-    
-      }}
-    })
+      }
 </script>

@@ -1,6 +1,6 @@
 <template>
-    <!--Bar de navigation (NavBar)-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
+  <!--Bar de navigation (NavBar)-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
       <!--Titre-->
     <a class="navbar-brand" href="#">Sekoliko</a>
     <!--Logo-->
@@ -9,47 +9,48 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse " id="navbarNav">
       <ul class="navbar-nav">
-        <!--Dashboard-->
+        <!--Page d'accueil Utilisateur-->
         <li class="nav-item active">
           <router-link to="/home" class="nav-link">Accueil</router-link>
         </li>
-        <!---->
+        <!--Gestion des Classes-->
         <li class="nav-item">
           <router-link to="#" class="nav-link">Classes</router-link>
         </li>
-        <!---->
+        <!--Gestion des Eleves-->
         <li class="nav-item">
           <router-link to="#" class="nav-link">Eleves</router-link>
         </li>
-        <!---->
+        <!--Gestion des Enseignants-->
         <li class="nav-item">
           <router-link to="#" class="nav-link">Enseignants</router-link>
         </li>
-        <!---->
+        <!--Gestion des cours-->
         <li class="nav-item">
           <router-link to="#" class="nav-link">Cours</router-link>
         </li>
-        <!---->
+        <!--Gestion des Emplois du temps-->
         <li class="nav-item">
-          <router-link to="#" class="nav-link">Emplois-du-temps</router-link>
+          <router-link to="#" class="nav-link">EDT</router-link>
         </li>
-        <!--Notifications-->
+      
+        <ul class="navbar-nav ml-auto ">
+           <!--Notifications-->
         <li class="nav-item">
           <a class="nav-link" href="#">
             <i class="fas fa-bell"></i>
           </a>
-          <!--Dennexion-->
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-sign-out-alt"></i>
-          </a>
-        </li>
+          <li class="nav-item">
+            <!-- Déconnection-->
+            <button class="btn btn-outline-danger my-2 my-sm-0">Se Déconnecter</button>
+          </li>
+        </ul>
       </ul>
     </div>
-    </nav>
+  </nav>
 </template>
 
 <script lang="ts">

@@ -37,59 +37,49 @@
 </template>
     
 <script lang="ts">
-    import { defineComponent } from 'vue'
-    //
-    interface AdminSignUpData {
-    title: string;
-    identifiant: string;
-    password: string;
-    errors: { [key: string]: string };
-    }
-    
-    export default defineComponent({
-      //Nom du viewers 
-      name: 'AdminSignupPage',
-      data(): AdminSignUpData {
-        return {
-          title: 'Sekoliko',
-          identifiant: '',
-          password: '',
-          errors: {}
-        }
-      },
-      methods: {
-        ajouter: function() { 
-          //Achiffage lorsque les champs sont vide
-          this.errors = {};
-          if (this.identifiant === '' || this.password === '') {
-            this.errors.identifiant = 'Saisir un identifiant SVP!!';
-            this.errors.password = 'Saisir un Mot de passe SVP!!';
-          }else{
-          //Affichage lorsque les champs sont bien remplies
-          //Endpoint avec le back-end
-        fetch('http://localhost:3000/api/authAdmin//AdminSignup', { 
-            //methode POST
-          method: 'POST',
-          //Envoie la requete sous forme de JSON
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            identifiant: this.identifiant,
-            password: this.password
-          })
-        })
-        .then( ()=> {
-          //en cas de Succes 
-          console.log('Requete envoyer avec succes')
-          this.$router.push('/AdminHome'); // rediriger vers 
-        })
-        .catch( ()=> {
-          //en cas d'Erreur
-          console.log('Erreur lors d\'envoie de la requete')
-        })
-      }
-    }
-        }
+    import { Options, Vue } from 'vue-class-component';
+
+    @Options({
+        name: 'AdminSignUpPage',
       })
+export default class AdminSignupPage extends Vue {
+  title = 'Sekoliko';
+  identifiant = '';
+  password = '';
+  errors: { [key: string]: string } = {};
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      $router: any;
+
+  ajouter() {
+    // Affichage des erreurs si les champs sont vides
+    this.errors = {};
+    if (this.identifiant === '' || this.password === '') {
+      this.errors.identifiant = 'Saisir un identifiant SVP!!';
+      this.errors.password = 'Saisir un Mot de passe SVP!!';
+    } else {
+      // Endpoint avec le backend
+      fetch('http://localhost:3000/api/authAdmin//AdminSignup', {
+        // Methode POST
+        method: 'POST',
+        // Envoie la requete sous forme de JSON
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          identifiant: this.identifiant,
+          password: this.password
+        })
+      })
+        .then(() => {
+          // En cas de succès rediriger vers la page d'accueil de l'admin
+          console.log('Requete envoyer avec succes')
+          this.$router.push('/AdminHome');
+        })
+        .catch(() => {
+          // En cas d'erreur
+          console.log("Erreur lors d'envoie de la requete")
+        })
+    }
+  }
+}
 </script>

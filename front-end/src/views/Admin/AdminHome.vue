@@ -9,15 +9,19 @@
 </template>
   
 <script lang="ts">
-  import { defineComponent } from 'vue';
-  import AdminNavBar from '@/components/AdminNavBar.vue';
+import { Options, Vue } from 'vue-class-component';
+import AdminNavBar from '@/components/AdminNavBar.vue';
 
-  export default defineComponent({
-    name: 'AdminHomePage',
-    components: {
+@Options({
+  components: {
     AdminNavBar,
   },
-  });
+})
+export default class AdminHomePage extends Vue {
+  //Nom du composant
+  name = 'AdminHomePage';
+}
+
 </script>
   
 <style>

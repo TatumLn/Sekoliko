@@ -38,70 +38,57 @@
 </template>
   
 <script lang="ts">
-  //importer dans vue 
-  import { defineComponent } from 'vue'
+    import { Vue, Options } from 'vue-class-component';
 
-  //
-  interface LoginPageData {
-  title: string;
-  identifiant: string;
-  password: string;
-  errors: { [key: string]: string };
-}
-  
-  export default defineComponent({
-    //Nom du viewers
-    name: 'LoginPage',
-    data(): LoginPageData {
-      return {
-        title: 'Sekoliko',
-        identifiant: '',
-        password: '',
-        errors: {}
-      }
-    },
-    methods: {
-      connecter: function () {
-        //Achiffage lorsque les champs sont vide
+    @Options({
+      name: 'LoginPage',
+    })
+    export default class LoginPage extends Vue {
+      title = 'Sekoliko';
+      identifiant = '';
+      password = '';
+      errors: { [key: string]: string } = {};
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      $router: any;
+
+      connecter() {
+        // Initialiser les erreurs
         this.errors = {};
         if (this.identifiant === '' || this.password === '') {
           this.errors.identifiant = 'Entrer Votre identifiant SVP!!';
           this.errors.password = 'Entrer Votre Mot de passe SVP!!';
-        }else{
-        //Lorsque les champs sont bien remplies
-        //Endpoint avec le back-end
-      fetch('http://localhost:3000/api/auth/', {
-        //methode POST
-        method: 'POST',
-        //Envoie la requete sous forme d'objet JSON
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          identifiant: this.identifiant,
-          password: this.password
-        })
-      })
-      .then(response => response.json())
-        .then(data => {
-          //Si l'identifiant entrer est un identifiant user diriger l'user vers la page d'accueil user
-        if (data.role === 'user') {
-        this.$router.push('/home');
-        //Si admin diriger vers la page d'accueil admin
-        } else if (data.role === 'admin') {
-        this.$router.push('/AdminHome');
         } else {
-          //Si ni admin ni user "Utilisateur non inscrit"
-        console.log('Utilisateur non inscrit!!');
+          //Envoyer une requête POST au serveur
+          fetch('http://localhost:3000/api/auth/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              identifiant: this.identifiant,
+              password: this.password
+            })
+          })
+          //Si une reponse est obtenue
+            .then(response => response.json())
+            .then(data => {
+              //Si identifiant et mot de passe user diriger vers la page d'accueil user
+              if (data.role === 'user') {
+                this.$router.push('/home');
+                //Si identifiant et mot de passe admin diriger vers la page admin
+              } else if (data.role === 'admin') {
+                this.$router.push('/AdminHome');
+              } else {
+                //Affichage si l'identifiant n'existe pas 
+                console.log('Utilisateur non inscrit!!');
+              }
+            })
+            //Si une erreure est survenue
+            .catch(() => {
+              console.log('Echec de la connexion')
+            })
         }
-      })
-      .catch( () => {
-        //en cas d'erreur
-        console.log('Echec de la connexion')
-      })
-    }
-    }
       }
-    })
+    }
 </script>
   
