@@ -16,4 +16,5 @@ server.on('error', (error) => {
 server.on('listening', () => {
   console.log(`Serveur démarré sur le port ${PORT}`);
 });
+//Ecoute des requetes
 server.listen(PORT);
