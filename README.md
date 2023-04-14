@@ -31,7 +31,7 @@ IGGLIA 3 2022-2023
 #Pour le front 
 Commande ci-dessus
 
-/Pour le back
+#Pour le back
 Npm init dans le dossier back-end
 Npm i express, bcrypt, body-parser, cors, dotenv, mongoose (pour installer tout les modules indispensable au projet)
 Créer un cluster en ligne avec mongoDBAtlas sur le site MongoDB
