@@ -66,6 +66,7 @@
                 identifiant: this.identifiant,
               }),
             })
+            //Lorsqu'une reponse est obtenue
               .then((response) => response.json())
               .then((user) => {
                 //Si l'identifiant est deja enregistré

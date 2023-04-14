@@ -7,5 +7,5 @@ const userCtrl = require('../controllers/admin');
 //Route pour l'inscription (SignUp)
 router.post('/AdminSignup', userCtrl.creer);
 
-
+//Exporte les routes
 module.exports = router;

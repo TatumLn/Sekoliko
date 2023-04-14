@@ -10,5 +10,5 @@ router.post('/signupUser', userCtrl.ajouter);
 router.post('/checkIdentifiant', userCtrl.checkIdentifiant);
 router.post('/', userCtrl.connecter);
 
-
+//Exporte les routes
 module.exports = router;
