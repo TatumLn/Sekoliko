@@ -13,12 +13,14 @@
                   <!--Identifiant-->
                   <div class="form-group">
                     <input type="text" name="identifiant" class="form-control" v-model="identifiant" placeholder="Entrer son identifiant ici" autocomplete="off">
+                    <!--  Affichage si le champ identifiant est vide-->
                     <span v-if="errors.identifiant" class="text-danger">{{ errors.identifiant }}</span>
                   </div>
                   <br>
                   <!--Mot de passe-->
                   <div class="form-group">
                     <input type="password" name="password" class="form-control" v-model="password" placeholder="Saisir un mot de passe">
+                    <!--  Affichage si le champ mot de passe est vide-->
                     <span v-if="errors.password" class="text-danger">{{ errors.password }}</span>
                   </div>
                   <br>
