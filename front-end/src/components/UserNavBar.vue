@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
       <!--Titre-->
     <a class="navbar-brand" href="#">Sekoliko</a>
-    <!--Logo-->
+    <!--Logo sekoliko-->
     <img src="../assets/sekoliko.png" alt="" height="50">
     <!--Bouton responsive-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
