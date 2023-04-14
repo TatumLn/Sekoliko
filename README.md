@@ -1,11 +1,30 @@
 # Sekoliko
-Gestion d'une école (Avec TechJS)
-IGGLIA 3 2022-2023
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
 
 //Pour le front 
-npm i -g @Vue/Cli
-Choisir l'installation manuelle et installer Babel,typescript, Router, Vuex, Eslint.
-npm i bootstrap (pour installer bootstrap)
+Commande ci-dessus
 
 //Pour le back
 Npm init dans le dossier back-end
