@@ -29,12 +29,12 @@
           </div>
         </div>
       </div>
-    </template>
+</template>
     
-    <script lang="ts">
+<script lang="ts">
     import { defineComponent } from 'vue'
     //
-    interface SignUpPageData {
+    interface AdminAddUserData {
     identifiant: string;
     password: string;
     errors: { [key: string]: string };
@@ -43,7 +43,7 @@
     export default defineComponent({
       //Nom du viewers 
       name: 'AdminAddUserPage',
-      data(): SignUpPageData {
+      data(): AdminAddUserData {
         return {
           identifiant: '',
           password: '',
@@ -108,4 +108,4 @@
     
       }}
     })
-  </script>
+</script>

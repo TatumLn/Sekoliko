@@ -2,23 +2,23 @@
     <!--Bar de navigation (NavBar)-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
 
-  </nav>
-  </template>
+    </nav>
+</template>
   
-  <script lang="ts">
+<script lang="ts">
   import { defineComponent } from 'vue';
   
   export default defineComponent({
     //Nom du composant
     name: 'AminNavBar',
   });
-  </script>
+</script>
   
-  <style>
+<style>
   .navbar-nav {
     width: 100%;
   }
   .nav-link {
     padding: 1rem;
   }
-  </style>
+</style>

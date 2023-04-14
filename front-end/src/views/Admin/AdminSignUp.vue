@@ -32,12 +32,12 @@
           </div>
         </div>
       </div>
-    </template>
+</template>
     
-    <script lang="ts">
+<script lang="ts">
     import { defineComponent } from 'vue'
     //
-    interface SignUpPageData {
+    interface AdminSignUpData {
     title: string;
     identifiant: string;
     password: string;
@@ -47,7 +47,7 @@
     export default defineComponent({
       //Nom du viewers 
       name: 'AdminSignupPage',
-      data(): SignUpPageData {
+      data(): AdminSignUpData {
         return {
           title: 'Sekoliko',
           identifiant: '',
@@ -90,4 +90,4 @@
     }
         }
       })
-  </script>
+</script>

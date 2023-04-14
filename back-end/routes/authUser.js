@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+//Importe le controller pour les utilisateurs
 const userCtrl = require('../controllers/user');
 
 //Route pour l'inscription (SignUp)

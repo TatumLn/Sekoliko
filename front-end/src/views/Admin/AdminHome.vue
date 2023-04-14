@@ -1,14 +1,14 @@
 <template>
     <div>
-    <AdminNavBar/>
-    <div class="container mt-4">
-      <h1>Bonjour!</h1>
-      <p>Voici la page d'accueil des administrateurs.</p>
+      <AdminNavBar/>
+      <div class="container mt-4">
+        <h1>Bonjour!</h1>
+        <p>Voici la page d'accueil des administrateurs.</p>
+      </div>
     </div>
-</div>
-  </template>
+</template>
   
-  <script lang="ts">
+<script lang="ts">
   import { defineComponent } from 'vue';
   import AdminNavBar from '@/components/AdminNavBar.vue';
 
@@ -18,9 +18,9 @@
     AdminNavBar,
   },
   });
-  </script>
+</script>
   
-  <style>
+<style>
 
-  </style>
+</style>
   

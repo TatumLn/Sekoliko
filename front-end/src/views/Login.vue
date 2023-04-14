@@ -33,9 +33,9 @@
         </div>
       </div>
     </div>
-  </template>
+</template>
   
-  <script lang="ts">
+<script lang="ts">
   //importer dans vue 
   import { defineComponent } from 'vue'
 
@@ -101,5 +101,5 @@
     }
       }
     })
-  </script>
+</script>
   
