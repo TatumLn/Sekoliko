@@ -6,7 +6,7 @@ IGGLIA 3 2022-2023
 #Pour le front 
 Commande dans readme du dosier front-end
 
-/Pour le back
+#Pour le back
 Npm init dans le dossier back-end
 Npm i express, bcrypt, body-parser, cors, dotenv, mongoose (pour installer tout les modules indispensable au projet)
 Créer un cluster en ligne avec mongoDBAtlas sur le site MongoDB
@@ -18,4 +18,4 @@ NB:
 On a séparé front et le back dans deux dossiers différents dans ce projet d'ou d'un côté il faut lancé le front avec la commande: 
 npm run serve (demarre sur le port 8080)
 et d'un autre côté le back pour obtenir la réponse avec la commande:
-npm start (demarre sur le port 3000)
+npm start
