@@ -1,35 +1,10 @@
-<<<<<<< HEAD
-# Sekoliko
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
+<
 # Projet Sekoliko TechJS
 IGGLIA 3 2022-2023
->>>>>>> bc34c8259561155dfbb649ed57ccf3e64c334a7f
+#Lien Web  
 
 #Pour le front 
-Commande ci-dessus
+Commande dans readme du dosier front-end
 
 /Pour le back
 Npm init dans le dossier back-end
@@ -41,6 +16,6 @@ MONGO_URL='mongodb+srv://<Nom_D'UtilisateurMongoDBAtlas>:<Mot_De_PasseMongoDBAtl
 
 NB:
 On a séparé front et le back dans deux dossiers différents dans ce projet d'ou d'un côté il faut lancé le front avec la commande: 
-npm run serve 
+npm run serve (demarre sur le port 8080)
 et d'un autre côté le back pour obtenir la réponse avec la commande:
-npm start
+npm start (demarre sur le port 3000)
