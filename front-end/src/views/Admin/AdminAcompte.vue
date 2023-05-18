@@ -2,12 +2,11 @@
       <div>
       <AdminNavBar/>
       <div class="container mt-4">
-        <h1>Liste des administrateurs de sekoliko</h1>
-        <!--NavBar Verticale-->
-        <nav>
-            
-        </nav>
-        <div><!--la liste s'affiche ici--></div>
+        <div>
+            <p>Changer ma photo de profil</p>
+            <p>Changer mon mot de passe?</p>
+            <p>Changer mon nom</p>
+        </div>
       </div>
     </div>
 </template>
@@ -21,9 +20,9 @@ import AdminNavBar from '../../components/AdminNavBar.vue';
   },
 })
 
-export default class AdminListPage extends Vue {
+export default class AdminAcomptePage extends Vue {
   //Nom du composant
-  name = 'AdminListPage';
+  name = 'AdminAcomptePage';
 }
 </script>
 

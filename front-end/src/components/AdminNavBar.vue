@@ -10,22 +10,28 @@
           </li>
           <li class="nav-item">
              <!-- Infos sur les Admin-->
-            <router-link to="#" class="nav-link">Admin</router-link>
+            <router-link to="/AdminList" class="nav-link">Les Administrateurs</router-link>
           </li>
           <li class="nav-item">
             <!-- Ajout d'utilisateur-->
-            <router-link to="/AdminAddUser" class="nav-link">Ajout Utilisateur</router-link>
+            <router-link to="/AdminAddUser" class="nav-link">Ajout d'Utilisateur</router-link>
           </li>
           <li class="nav-item">
             <!-- Ajout administrateur-->
-            <router-link to="/AdminSignup" class="nav-link">Ajout Admin</router-link>
+            <router-link to="/AdminSignup" class="nav-link">Ajout d'Administrateurs</router-link>
           </li>
           <li class="nav-item">
             <!-- Parametres-->
-            <router-link to="#" class="nav-link">Mon Compte</router-link>
+            <router-link to="/AdminAcompte" class="nav-link">Mon Compte</router-link>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <!-- Photo de profil -->
+            <router-link to="#" class="nav-link">
+              <img src="" class="pdp" alt="Photo de profil">
+            </router-link>
+          </li>
           <li class="nav-item">
             <!-- Déconnection-->
             <button class="btn btn-outline-danger my-2 my-sm-0">Se Déconnecter</button>
@@ -51,5 +57,8 @@
       }
       .nav-link {
         padding: 1rem;
+      }
+      .pdp {
+        border: 2px solid red;
       }
 </style>

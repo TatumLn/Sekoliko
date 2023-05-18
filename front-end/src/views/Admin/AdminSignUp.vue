@@ -1,14 +1,11 @@
 <template>
-<div>
-  <AdminNavBar/>
+  <div>
+    <AdminNavbar/>
     <!--Bootstrap-->
       <div class="container">
         <div class="row justify-content-center mt-5">
           <div class="col-md-6">
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">{{ title }} <sub>Admin</sub> </h3>
-              </div>
               <div class="card-body">
                 <!--Formulaire D'inscription (SignUp)-->
                 <div class="message">
@@ -17,14 +14,14 @@
                 <form >
                   <!--Identifiant-->
                   <div class="form-group">
-                    <input type="text" name="identifiant" class="form-control" v-model="identifiant" placeholder="Entrer un identifiant ici" autocomplete="off">
+                    <input type="text" name="identifiant" class="form-control" v-model="identifiant" placeholder="Identifiant du nouveau Administrateur" autocomplete="off">
                     <!--  Affichage si le champ identifiant est vide-->
                     <span v-if="errors.identifiant" class="text-danger">{{ errors.identifiant }}</span>
                   </div>
                 <br>
                   <!--Mot de passe-->
                   <div class="form-group">
-                    <input type="password" name="password" class="form-control" v-model="password" placeholder="Saisir un mot de passe">
+                    <input type="password" name="password" class="form-control" v-model="password" placeholder="Mot de passe du  nouveau Administrateur">
                     <!--  Affichage si le champ mot de passe est vide-->
                     <span v-if="errors.password" class="text-danger">{{ errors.password }}</span>
                   </div>
@@ -36,20 +33,20 @@
           </div>
         </div>
       </div>
-      </div>
+  </div>
 </template>
     
 <script lang="ts">
     import { Options, Vue } from 'vue-class-component';
-    import AdminNavbar from '@/components/AdminNavBar.vue';
-
+    import AdminNavbar from '../../components/AdminNavBar.vue';
 
     @Options({
         name: 'AdminSignUpPage',
-  components: {AdminNavbar},
+    components: {
+    AdminNavbar,
+  },
       })
 export default class AdminSignupPage extends Vue {
-  title = 'Sekoliko';
   identifiant = '';
   password = '';
   errors: { [key: string]: string } = {};

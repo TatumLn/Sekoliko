@@ -7,6 +7,7 @@ import AdminSignupPage from '@/views/Admin/AdminSignUp.vue'
 import AdminHomePage from '@/views/Admin/AdminHome.vue'
 import AdminAddUserPage from '@/views/Admin/AdminAddUser.vue'
 import AdminListPage from '@/views/Admin/AdminList.vue'
+import AdminAcomptePage from '@/views/Admin/AdminAcompte.vue'
 
 //
 const routes = [
@@ -34,6 +35,12 @@ const routes = [
     path: '/AdminList',
     name: 'Adminlist',
     component: AdminListPage
+  },
+  {
+    //Parametre de compte
+    path: '/AdminAcompte',
+    name: 'Adminacompte',
+    component: AdminAcomptePage
   },
 
   //Pour Les Utilisateurs

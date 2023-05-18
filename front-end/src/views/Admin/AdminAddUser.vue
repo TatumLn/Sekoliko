@@ -1,4 +1,6 @@
 <template>
+  <div>
+    <AdminNavbar/>
     <!--Bootstrap-->
       <div class="container">
         <div class="row justify-content-center mt-5">
@@ -12,14 +14,14 @@
                 <form >
                   <!--Identifiant-->
                   <div class="form-group">
-                    <input type="text" name="identifiant" class="form-control" v-model="identifiant" placeholder="Entrer son identifiant ici" autocomplete="off">
+                    <input type="text" name="identifiant" class="form-control" v-model="identifiant" placeholder="Identifiant du nouveau Utilisateur" autocomplete="off">
                     <!--  Affichage si le champ identifiant est vide-->
                     <span v-if="errors.identifiant" class="text-danger">{{ errors.identifiant }}</span>
                   </div>
                   <br>
                   <!--Mot de passe-->
                   <div class="form-group">
-                    <input type="password" name="password" class="form-control" v-model="password" placeholder="Saisir un mot de passe">
+                    <input type="password" name="password" class="form-control" v-model="password" placeholder="Mot de passe du nouveau Utilisateur">
                     <!--  Affichage si le champ mot de passe est vide-->
                     <span v-if="errors.password" class="text-danger">{{ errors.password }}</span>
                   </div>
@@ -31,13 +33,18 @@
           </div>
         </div>
       </div>
+  </div>
 </template>
     
 <script lang="ts">
    import { Options, Vue } from 'vue-class-component';
+   import AdminNavbar from '../../components/AdminNavBar.vue';
 
       @Options({
         name: 'AdminAddUserPage',
+        components: {
+                      AdminNavbar,
+                    },
       })
       export default class AdminAddUserPage extends Vue {
         identifiant = '';
