@@ -59,6 +59,9 @@
         padding: 1rem;
       }
       .pdp {
-        border: 2px solid red;
+        border: 1px solid red;
+        width: 40px; 
+        height: 40px; 
+        border-radius: 10%; 
       }
 </style>
