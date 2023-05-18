@@ -17,7 +17,7 @@
         </li>
         <!--Gestion des Classes-->
         <li class="nav-item">
-          <router-link to="#" class="nav-link">Classes</router-link>
+          <router-link to="/classes" class="nav-link">Classes</router-link>
         </li>
         <!--Gestion des Eleves-->
         <li class="nav-item">
@@ -27,9 +27,9 @@
         <li class="nav-item">
           <router-link to="#" class="nav-link">Enseignants</router-link>
         </li>
-        <!--Gestion des cours-->
+        <!--Gestion des cours de chaque filières-->
         <li class="nav-item">
-          <router-link to="#" class="nav-link">Cours</router-link>
+          <router-link to="#" class="nav-link">Filières</router-link>
         </li>
         <!--Gestion des Emplois du temps-->
         <li class="nav-item">
@@ -37,6 +37,12 @@
         </li>
       
         <ul class="navbar-nav ml-auto ">
+        <li class="nav-item">
+        <!-- Photo de profil -->
+          <router-link to="#" class="nav-link">
+            <img src="" class="pdp" alt="Photo de profil">
+          </router-link>
+        </li>
            <!--Notifications-->
         <li class="nav-item">
           <a class="nav-link" href="#">

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 //import des composants côté utilisateurs
 import LoginPage from '@/views/Login.vue'
 import UserHomePage from '@/views/Users/UserHome.vue'
+import ClassesPage from '@/views/Users/Classes.vue'
 //import des composants côté admin
 import AdminSignupPage from '@/views/Admin/AdminSignUp.vue'
 import AdminHomePage from '@/views/Admin/AdminHome.vue'
@@ -55,6 +56,12 @@ const routes = [
     path: '/home',
     name: 'home',
     component: UserHomePage
+  },
+  {
+    //Accueil User
+    path: '/classes',
+    name: 'classes',
+    component: ClassesPage
   }
 ]
 

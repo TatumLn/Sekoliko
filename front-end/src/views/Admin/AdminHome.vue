@@ -3,7 +3,6 @@
       <AdminNavBar/>
       <div class="container mt-4">
         <h1>Bonjour!</h1>
-        <p>Voici la page d'accueil des administrateurs.</p>
         <div>Nombre d'administrateurs de sekoliko</div>
         <div>Nombre d'utilisateurs de sekoliko</div>
       </div>

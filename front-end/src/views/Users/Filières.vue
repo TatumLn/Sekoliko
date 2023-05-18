@@ -2,11 +2,8 @@
     <div>
       <UserNavBar/>
       <div class="container mt-4">
-        <h1>Bonjour!</h1>
-        <div>Nombre d'eleve actuel de l'ecole </div>
-        <div>Nombre de professeurs actuel de l'ecole</div>
-        <div>Nombre de classe disponible dans l'ecole</div>
-        <div>Nombres de filières dans l'ecole</div>
+        <nav></nav>
+        <div>Listes des cours de chaques filières</div>
       </div>
     </div>
 </template>
@@ -20,7 +17,7 @@ import UserNavBar from '../../components/UserNavBar.vue';
     UserNavBar,
   },
 })
-export default class UserHomePage extends Vue {
+export default class FilieresPage extends Vue {
   //Methode
 }
 </script>
