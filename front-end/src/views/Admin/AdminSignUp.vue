@@ -1,4 +1,6 @@
 <template>
+<div>
+  <AdminNavBar/>
     <!--Bootstrap-->
       <div class="container">
         <div class="row justify-content-center mt-5">
@@ -34,13 +36,17 @@
           </div>
         </div>
       </div>
+      </div>
 </template>
     
 <script lang="ts">
     import { Options, Vue } from 'vue-class-component';
+    import AdminNavbar from '@/components/AdminNavBar.vue';
+
 
     @Options({
         name: 'AdminSignUpPage',
+  components: {AdminNavbar},
       })
 export default class AdminSignupPage extends Vue {
   title = 'Sekoliko';
