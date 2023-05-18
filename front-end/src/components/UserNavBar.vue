@@ -2,7 +2,7 @@
   <!--Bar de navigation (NavBar)-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light flex-column">
       <!--Titre-->
-    <a class="navbar-brand" href="#">Sekoliko</a>
+    <a class="navbar-brand" href="/home">Sekoliko</a>
     <!--Logo sekoliko-->
     <img src="../assets/sekoliko.png" alt="" height="50">
     <!--Bouton responsive-->
@@ -17,7 +17,7 @@
         </li>
         <!--Gestion des Classes-->
         <li class="nav-item">
-          <router-link to="/classes" class="nav-link">Classes</router-link>
+          <router-link to="/classes" class="nav-link">Salles</router-link>
         </li>
         <!--Gestion des Eleves-->
         <li class="nav-item">
@@ -29,7 +29,7 @@
         </li>
         <!--Gestion des cours de chaque filières-->
         <li class="nav-item">
-          <router-link to="#" class="nav-link">Filières</router-link>
+          <router-link to="/filières" class="nav-link">Filières</router-link>
         </li>
         <!--Gestion des Emplois du temps-->
         <li class="nav-item">

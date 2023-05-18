@@ -24,3 +24,7 @@ const Admin = require('../models/admin')
             })
             .catch(error => res.status(500).json({ message: 'Impossible d\'ajouté l\'admin !' }));
         }
+
+//Pour listé 
+
+//Pour récupéré leurs  nombres
