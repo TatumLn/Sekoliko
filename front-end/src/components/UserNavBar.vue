@@ -21,11 +21,11 @@
         </li>
         <!--Gestion des Eleves-->
         <li class="nav-item">
-          <router-link to="#" class="nav-link">Eleves</router-link>
+          <router-link to="/élèves" class="nav-link">Eleves</router-link>
         </li>
         <!--Gestion des Enseignants-->
         <li class="nav-item">
-          <router-link to="#" class="nav-link">Enseignants</router-link>
+          <router-link to="/enseignants" class="nav-link">Enseignants</router-link>
         </li>
         <!--Gestion des cours de chaque filières-->
         <li class="nav-item">

@@ -2,8 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 //import des composants côté utilisateurs
 import LoginPage from '@/views/Login.vue'
 import UserHomePage from '@/views/Users/UserHome.vue'
-import ClassesPage from '@/views/Users/Classes.vue'
-import FilieresPage from '@/views/Users/Filières.vue'
+import ClassesPage from '@/views/Users/Gestion__Classes/Classes.vue'
+import ElèvesPage from '@/views/Users/Gestion__Elèves/Elèves.vue'
+import EnseignantsPage from '@/views/Users/Gestion__Enseigants/Enseignants.vue'
+import FilieresPage from '@/views/Users/Gestion__Filières/Filières.vue'
 //import des composants côté admin
 import AdminSignupPage from '@/views/Admin/AdminSignUp.vue'
 import AdminHomePage from '@/views/Admin/AdminHome.vue'
@@ -65,9 +67,21 @@ const routes = [
     component: ClassesPage
   },
   {
+    //Gestion des élèves de chaque filières
+    path: '/élèves',
+    name: 'élèves',
+    component: ElèvesPage
+  },
+  {
+    //Gestion des enseignants
+    path: '/enseignants',
+    name: 'enseignants',
+    component: EnseignantsPage
+  },
+  {
     //Gestion des cours pour chaque filières
     path: '/filières',
-    name: '/filières',
+    name: 'filières',
     component: FilieresPage
   }
 ]
