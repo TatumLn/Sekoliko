@@ -1,4 +1,3 @@
-<
 # Projet Sekoliko TechJS
 IGGLIA 3 2022-2023
 #Lien Web  
